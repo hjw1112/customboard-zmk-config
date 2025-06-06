@@ -1,4 +1,4 @@
-name: zmk-keyboard-customboard
+name: customboard
 build:
   settings:
-    board_root: boards
+    board_root: .
