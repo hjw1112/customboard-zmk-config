@@ -24,10 +24,13 @@
 };
 
 
-//expension board
+
+
 
 &i2c1 {
     status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-names = "default";
 
     tca9555: tca9555@20 {
         compatible = "ti,tca9555";
@@ -37,11 +40,7 @@
         #gpio-cells = <2>;
         int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
     };
-};
 
-
-//OLED
-&i2c1 {
     ssd1306: ssd1306@3c {
         compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
@@ -54,6 +53,10 @@
         reset-gpios = <>;
     };
 };
+
+
+
+
 
 //encoder
 / {
