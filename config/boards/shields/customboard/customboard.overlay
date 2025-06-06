@@ -24,7 +24,8 @@
 };
 
 
-#expension board
+//expension board
+
 &i2c1 {
     status = "okay";
 
@@ -54,7 +55,7 @@
     };
 };
 
-#encoder
+//encoder
 / {
     encoder0: ec11_0 {
         compatible = "zmk,behavior-rotary-encoder";
