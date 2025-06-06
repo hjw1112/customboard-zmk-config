@@ -1,3 +1,6 @@
+name: zmk-keyboard-customboard
 build:
   settings:
-    board_root: .
+    board_root: boards
+    dts_root: boards
+    shield_root: boards/shields
