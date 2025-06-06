@@ -1,5 +1,4 @@
 # config/boards/shields/customboard/Kconfig
 
 config SHIELD_CUSTOMBOARD
-    bool "Customboard"
-    depends on SHIELD
+    def_bool $(shields_list_contains,forager_left)
