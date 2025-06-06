@@ -77,7 +77,7 @@
             compatible = "zmk,behavior-encoder";
             binding = "scroll";
         };
-        events = <INPUT_EVENT_ENCODER>;  // Optional for advanced handling
+        //events = <INPUT_EVENT_ENCODER>;  // Optional for advanced handling
         button {
             gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // Push button pin
             label = "Encoder Button";
