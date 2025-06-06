@@ -1,0 +1,65 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio";
+        row-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>,
+                    <&gpio0 20 GPIO_ACTIVE_LOW>,
+                    <&gpio0 22 GPIO_ACTIVE_LOW>,
+                    <&gpio0 24 GPIO_ACTIVE_LOW>,
+                    <&gpio1 00 GPIO_ACTIVE_LOW>,
+                    <&tca9555 17 GPIO_ACTIVE_LOW>;
+        col-gpios = <&tca9555 0 GPIO_ACTIVE_LOW>, <&tca9555 1 GPIO_ACTIVE_LOW>,
+                    <&tca9555 2 GPIO_ACTIVE_LOW>, <&tca9555 3 GPIO_ACTIVE_LOW>,
+                    <&tca9555 4 GPIO_ACTIVE_LOW>, <&tca9555 5 GPIO_ACTIVE_LOW>,
+                    <&tca9555 6 GPIO_ACTIVE_LOW>, <&tca9555 7 GPIO_ACTIVE_LOW>,
+                    <&tca9555 16 GPIO_ACTIVE_LOW>, <&tca9555 15 GPIO_ACTIVE_LOW>,
+                    <&tca9555 14 GPIO_ACTIVE_LOW>, <&tca9555 13 GPIO_ACTIVE_LOW>,
+                    <&tca9555 12 GPIO_ACTIVE_LOW>, <&tca9555 11 GPIO_ACTIVE_LOW>,
+                    <&tca9555 10 GPIO_ACTIVE_LOW>;
+        diode-direction = "col2row";
+    };
+};
+
+
+#expension board
+&i2c1 {
+    status = "okay";
+
+    tca9555: tca9555@20 {
+        compatible = "ti,tca9555";
+        reg = <0x20>;
+        label = "TCA9555";
+        gpio-controller;
+        #gpio-cells = <2>;
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+    };
+};
+
+
+//OLED
+&i2c1 {
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb-i2c";
+        reg = <0x3c>;
+        label = "SSD1306";
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-on = <1>;
+        reset-gpios = <>;
+    };
+};
+
+#encoder
+/ {
+    encoder0: ec11_0 {
+        compatible = "zmk,behavior-rotary-encoder";
+        label = "RotaryEncoder";
+        a-gpios = <&gpio0 06 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        b-gpios = <&gpio0 08 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+    };
+};
