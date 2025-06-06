@@ -67,19 +67,23 @@
 
 //encoder
 &gpio0 {
-    ec11: ec11@0 {
+    ec11_encoder: ec11@0 {
         compatible = "alps,ec11";
-        label = "EC11";
-
-        /* Change to your actual pins */
-        a-gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        b-gpios = <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        encoder-key-gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-
-        /* Optional debounce delay in ms */
-        debounce-delay-ms = <5>;
-
-        /* Optional steps per pulse, usually 1 */
-        steps-per-period = <1>;
+        status = "okay";
+        //label = "EC11 Encoder";
+        gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,  /* A pin */
+                <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  /* B pin */
+        input: encoder_input {
+            compatible = "zmk,behavior-encoder";
+            binding = "scroll";
+        };
+        events = <INPUT_EVENT_ENCODER>;  // Optional for advanced handling
+        button {
+            gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // Push button pin
+            label = "Encoder Button";
+        };
     };
 };
+
+
+
