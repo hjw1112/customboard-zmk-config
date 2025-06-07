@@ -62,7 +62,6 @@
         display-offset = <0>;
         multiplex-ratio = <63>;
         prechargep = <0xF1>;
-        display-on = <1>;
     };
 };
 
