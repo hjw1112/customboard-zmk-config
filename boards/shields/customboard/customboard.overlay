@@ -60,6 +60,7 @@
         segment-offset = <0>;
         page-offset = <0>;
         display-on = <1>;
+        display-offset = <0>;
     };
 };
 
