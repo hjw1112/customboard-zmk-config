@@ -29,7 +29,7 @@ include: base.yaml
 properties:
   "#gpio-cells":
     type: int
-    const: 2
+    const: 0
     required: true
 
   gpio-controller:
