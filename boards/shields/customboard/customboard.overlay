@@ -79,12 +79,13 @@
             label = "Encoder Button";
         };
     };
-};
-
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&ec11>;
         triggers-per-rotation = <20>;
     };
+};
+
+
 
 
