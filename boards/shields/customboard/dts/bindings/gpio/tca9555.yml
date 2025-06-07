@@ -37,5 +37,20 @@ properties:
   int-gpios:
     type: phandle-array
     required: false
+  
+  ngpios:
+    type: int
+    required: true
+    description: no.of gpios
 
 
+
+
+    tca9555: tca9555@20 {
+        compatible = "ti,tca9555";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+    };
