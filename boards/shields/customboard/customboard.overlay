@@ -47,35 +47,25 @@
         ngpios = <16>;
         int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
     };
-};
 
-
-
-
-
-
-/ {
-    chosen {
-        zephyr,display = &oled;
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb-i2c";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-on = <1>;
+        reset-gpios = <>;
     };
 };
 
-
-&oled {
-    compatible = "solomon,ssd1306fb";
-    reg = <0x3C>;
-    width = <128>;
-    height = <64>;
-    segment-offset = <0>;
-    page-offset = <0>;
-    display-offset = <0>;
-    multiplex-ratio = <63>;
-    segment-remap;
-    com-invdir;
-    prechargep = <0xF1>;
-    com-pins = <0x12>;
-    i2c-max-frequency = <400000>;
+/ {
+    chosen {
+        zephyr,display = &ssd1306;
+    };
 };
+
 
 
 
