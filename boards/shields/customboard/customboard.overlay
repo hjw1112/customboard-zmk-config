@@ -65,19 +65,6 @@
 
 
 
-//encoder
-ec11_encoder: ec11@0 {
-    compatible = "alps,ec11";
-    status = "okay";
-    a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    steps = <80>;
-
-    button {
-        gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // Push button pin
-        label = "Encoder Button";
-    };
-};
 
 
 
