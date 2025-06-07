@@ -67,7 +67,7 @@
 
 //encoder
 &gpio0 {
-    ec11_encoder: ec11@0 {
+    ec11_encoder: ec11 {
         compatible = "alps,ec11";
         status = "okay";
         a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -81,5 +81,10 @@
     };
 };
 
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&ec11>;
+        triggers-per-rotation = <20>;
+    };
 
 
