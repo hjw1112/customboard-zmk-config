@@ -30,6 +30,7 @@ properties:
   "#gpio-cells":
     type: int
     const: 2
+    required: true
 
   gpio-controller:
     type: boolean
