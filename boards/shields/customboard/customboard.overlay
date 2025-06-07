@@ -1,6 +1,8 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
+        zephyr,display = &ssd1306;
+
     };
 
     kscan0: kscan {
@@ -32,12 +34,6 @@
     };
 };
 
-
-/ {
-    chosen {
-        zephyr,display = &ssd1306;
-    };
-};
 
 
 
