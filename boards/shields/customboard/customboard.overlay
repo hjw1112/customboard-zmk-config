@@ -60,7 +60,7 @@
     pinctrl-names = "default", "sleep";
 
     tca9555: tca9555@20 {
-        compatible = "ti,tca9555";
+        compatible = "ti,tca9538";
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
