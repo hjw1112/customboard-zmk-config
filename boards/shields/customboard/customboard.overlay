@@ -66,6 +66,7 @@
         #gpio-cells = <2>;
         ngpios = <16>;
         int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+        status = "okay";
     };
 
     ssd1306: ssd1306@3c {
