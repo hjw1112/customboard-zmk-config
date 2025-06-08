@@ -12,23 +12,23 @@
             <&gpio0 22 GPIO_ACTIVE_LOW>,
             <&gpio0 24 GPIO_ACTIVE_LOW>,
             <&gpio1 0 GPIO_ACTIVE_LOW>,
-            <&tca9555 15 GPIO_ACTIVE_LOW>; // P17
+            <&tca9555_p1 15 GPIO_ACTIVE_LOW>; // P17
 
-        col-gpios = <&tca9555 0 GPIO_ACTIVE_LOW>,  // P00
-                    <&tca9555 1 GPIO_ACTIVE_LOW>,  // P01
-                    <&tca9555 2 GPIO_ACTIVE_LOW>,  // P02
-                    <&tca9555 3 GPIO_ACTIVE_LOW>,  // P03
-                    <&tca9555 4 GPIO_ACTIVE_LOW>,  // P04
-                    <&tca9555 5 GPIO_ACTIVE_LOW>,  // P05
-                    <&tca9555 6 GPIO_ACTIVE_LOW>,  // P06
-                    <&tca9555 7 GPIO_ACTIVE_LOW>,  // P07
-                    <&tca9555 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
-                    <&tca9555 9 GPIO_ACTIVE_LOW>, // P16
-                    <&tca9555 10 GPIO_ACTIVE_LOW>, // P15
-                    <&tca9555 11 GPIO_ACTIVE_LOW>, // P14
-                    <&tca9555 12 GPIO_ACTIVE_LOW>, // P13
-                    <&tca9555 13 GPIO_ACTIVE_LOW>, // P12
-                    <&tca9555 14 GPIO_ACTIVE_LOW>;  // P11
+        col-gpios = <&tca9555_p0 0 GPIO_ACTIVE_LOW>,  // P00
+                    <&tca9555_p0 1 GPIO_ACTIVE_LOW>,  // P01
+                    <&tca9555_p0 2 GPIO_ACTIVE_LOW>,  // P02
+                    <&tca9555_p0 3 GPIO_ACTIVE_LOW>,  // P03
+                    <&tca9555_p0 4 GPIO_ACTIVE_LOW>,  // P04
+                    <&tca9555_p0 5 GPIO_ACTIVE_LOW>,  // P05
+                    <&tca9555_p0 6 GPIO_ACTIVE_LOW>,  // P06
+                    <&tca9555_p0 7 GPIO_ACTIVE_LOW>,  // P07
+                    <&tca9555_p1 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
+                    <&tca9555_p1 9 GPIO_ACTIVE_LOW>, // P16
+                    <&tca9555_p1 10 GPIO_ACTIVE_LOW>, // P15
+                    <&tca9555_p1 11 GPIO_ACTIVE_LOW>, // P14
+                    <&tca9555_p1 12 GPIO_ACTIVE_LOW>, // P13
+                    <&tca9555_p1 13 GPIO_ACTIVE_LOW>, // P12
+                    <&tca9555_p1 14 GPIO_ACTIVE_LOW>;  // P11
         diode-direction = "col2row";
     };
 };
@@ -59,15 +59,27 @@
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-    tca9555: tca9555@20 {
-        compatible = "ti,tca9538";
+
+
+    tca9555_p0: tca9555_p0@20 {
+        compatible = "ti,tca9538";  // ✅ Use existing driver
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
-        ngpios = <8>;
-        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+        ngpios = <8>;  // P00–P07
         status = "okay";
     };
+
+    tca9555_p1: tca9555_p1@20 {
+        compatible = "ti,tca9538";
+        reg = <0x20>;  // Same address
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <8>;  // P10–P17
+        status = "okay";
+    };
+
+
 
     ssd1306: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
