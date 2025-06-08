@@ -1,0 +1,111 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zephyr,display = &ssd1306;
+        //zmk,battery
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        row-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>,
+            <&gpio0 20 GPIO_ACTIVE_LOW>,
+            <&gpio0 22 GPIO_ACTIVE_LOW>,
+            <&gpio0 24 GPIO_ACTIVE_LOW>,
+            <&gpio1 0 GPIO_ACTIVE_LOW>,
+            <&tca9555 15 GPIO_ACTIVE_LOW>; // P17
+
+        col-gpios = <&tca9555 0 GPIO_ACTIVE_LOW>,  // P00
+                    <&tca9555 1 GPIO_ACTIVE_LOW>,  // P01
+                    <&tca9555 2 GPIO_ACTIVE_LOW>,  // P02
+                    <&tca9555 3 GPIO_ACTIVE_LOW>,  // P03
+                    <&tca9555 4 GPIO_ACTIVE_LOW>,  // P04
+                    <&tca9555 5 GPIO_ACTIVE_LOW>,  // P05
+                    <&tca9555 6 GPIO_ACTIVE_LOW>,  // P06
+                    <&tca9555 7 GPIO_ACTIVE_LOW>,  // P07
+                    <&tca9555 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
+                    <&tca9555 9 GPIO_ACTIVE_LOW>, // P16
+                    <&tca9555 10 GPIO_ACTIVE_LOW>, // P15
+                    <&tca9555 11 GPIO_ACTIVE_LOW>, // P14
+                    <&tca9555 12 GPIO_ACTIVE_LOW>, // P13
+                    <&tca9555 13 GPIO_ACTIVE_LOW>, // P12
+                    <&tca9555 14 GPIO_ACTIVE_LOW>;  // P11
+        diode-direction = "col2row";
+    };
+};
+
+
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>, <NRF_PSEL(TWIM_SDA, 0, 27)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>, <NRF_PSEL(TWIM_SDA, 0, 27)>;
+            low-power-enable;
+        };
+    };
+};
+
+
+
+
+&i2c1 {
+    status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    tca9555: tca9555@20 {
+        compatible = "ti,tca9555";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+    };
+
+    ssd1306: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0xF1>;
+    };
+};
+
+
+
+
+
+//encoder
+&gpio0 {
+    ec11_encoder: ec11 {
+        compatible = "alps,ec11";
+        status = "okay";
+        a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+
+        button {
+            gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // Push button pin
+            label = "Encoder Button";
+        };
+    };
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&ec11_encoder>;
+        triggers-per-rotation = <20>;
+    };
+};
+
+
+
+

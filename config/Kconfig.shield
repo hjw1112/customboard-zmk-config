@@ -1,0 +1,3 @@
+config SHIELD_CUSTOMBOARD
+    bool "Customboard"
+    depends on SHIELD

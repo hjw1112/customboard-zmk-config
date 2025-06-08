@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# description: TCA9555 GPIO Expander
+
+# compatible: "ti,tca9555"
+
+# include: [i2c-device.yaml, gpio-controller.yaml]
+
+# properties:
+
+#   ngpios:
+#     type: int
+#     required: true
+#     description: Number of GPIOs (typically 16 for TCA9555)
+
+#   int-gpios:
+#     type: phandle-array
+#     required: false
+#     description: Optional interrupt pin from the expander
+
+
+
+description: TCA9555 GPIO Expander
+
+compatible: "ti,tca9555"
+
+include: base.yaml
+
+properties:
+  "#gpio-cells":
+    type: int
+    const: 2
+    required: true
+
+  gpio-controller:
+    type: boolean
+
+  int-gpios:
+    type: phandle-array
+    required: false
+  
+  ngpios:
+    type: int
+    required: true
+    description: no.of gpios
+
+
+
+
+gpio-cells:
+  - pin
+  - flags
