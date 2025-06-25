@@ -61,21 +61,12 @@
 
 
 
-    tca9555_p0: tca9555_p0@20 {
-        compatible = "ti,tca9538";
+        tca9555: tca9555@20 {
+        compatible = "nxp,pca9555";
         reg = <0x20>;
+        label = "TCA9555";
         gpio-controller;
         #gpio-cells = <2>;
-        ngpios = <8>;  // P00–P07
-        status = "okay";
-    };
-
-    tca9555_p1: tca9555_p1@20 {
-        compatible = "ti,tca9538";
-        reg = <0x20>;  // Same address
-        gpio-controller;
-        #gpio-cells = <2>;
-        ngpios = <8>;  // P10–P17
         status = "okay";
     };
 
