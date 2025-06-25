@@ -61,14 +61,17 @@
 
 
 
-        tca9555: tca9555@20 {
-        compatible = "nxp,pca9555";
+    tca9555: gpio@20 {
+        compatible = "ti,tca9539";  // Use tca9539 for 16 GPIO support
         reg = <0x20>;
-        label = "TCA9555";
         gpio-controller;
         #gpio-cells = <2>;
+        ngpios = <16>;
+        label = "TCA9555";
         status = "okay";
     };
+
+    
 
 
 
