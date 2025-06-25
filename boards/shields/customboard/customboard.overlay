@@ -14,21 +14,21 @@
             <&gpio1 0 GPIO_ACTIVE_LOW>,
             <&tca9555_p1 15 GPIO_ACTIVE_LOW>; // P17
 
-        col-gpios = <&tca9555_p0 0 GPIO_ACTIVE_LOW>,  // P00
-                    <&tca9555_p0 1 GPIO_ACTIVE_LOW>,  // P01
-                    <&tca9555_p0 2 GPIO_ACTIVE_LOW>,  // P02
-                    <&tca9555_p0 3 GPIO_ACTIVE_LOW>,  // P03
-                    <&tca9555_p0 4 GPIO_ACTIVE_LOW>,  // P04
-                    <&tca9555_p0 5 GPIO_ACTIVE_LOW>,  // P05
-                    <&tca9555_p0 6 GPIO_ACTIVE_LOW>,  // P06
-                    <&tca9555_p0 7 GPIO_ACTIVE_LOW>,  // P07
-                    <&tca9555_p1 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
-                    <&tca9555_p1 9 GPIO_ACTIVE_LOW>, // P16
-                    <&tca9555_p1 10 GPIO_ACTIVE_LOW>, // P15
-                    <&tca9555_p1 11 GPIO_ACTIVE_LOW>, // P14
-                    <&tca9555_p1 12 GPIO_ACTIVE_LOW>, // P13
-                    <&tca9555_p1 13 GPIO_ACTIVE_LOW>, // P12
-                    <&tca9555_p1 14 GPIO_ACTIVE_LOW>;  // P11
+        col-gpios = <&tca9555 0 GPIO_ACTIVE_LOW>,  // P00
+                    <&tca9555 1 GPIO_ACTIVE_LOW>,  // P01
+                    <&tca9555 2 GPIO_ACTIVE_LOW>,  // P02
+                    <&tca9555 3 GPIO_ACTIVE_LOW>,  // P03
+                    <&tca9555 4 GPIO_ACTIVE_LOW>,  // P04
+                    <&tca9555 5 GPIO_ACTIVE_LOW>,  // P05
+                    <&tca9555 6 GPIO_ACTIVE_LOW>,  // P06
+                    <&tca9555 7 GPIO_ACTIVE_LOW>,  // P07
+                    <&tca9555 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
+                    <&tca9555 9 GPIO_ACTIVE_LOW>, // P16
+                    <&tca9555 10 GPIO_ACTIVE_LOW>, // P15
+                    <&tca9555 11 GPIO_ACTIVE_LOW>, // P14
+                    <&tca9555 12 GPIO_ACTIVE_LOW>, // P13
+                    <&tca9555 13 GPIO_ACTIVE_LOW>, // P12
+                    <&tca9555 14 GPIO_ACTIVE_LOW>;  // P11
         diode-direction = "col2row";
     };
 };
