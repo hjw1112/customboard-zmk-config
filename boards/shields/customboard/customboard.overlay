@@ -62,7 +62,7 @@
 
 
     tca9555_p0: tca9555_p0@20 {
-        compatible = "ti,tca9538";  // ✅ Use existing driver
+        compatible = "ti,tca9538";
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
