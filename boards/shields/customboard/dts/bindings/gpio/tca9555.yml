@@ -20,11 +20,44 @@
 
 
 
-description: TCA9555 GPIO Expander
+# description: TCA9555 GPIO Expander
 
-compatible: "ti,tca9555"
+# compatible: "ti,tca9555"
 
-include: base.yaml
+# include: base.yaml
+
+# properties:
+#   "#gpio-cells":
+#     type: int
+#     const: 2
+#     required: true
+
+#   gpio-controller:
+#     type: boolean
+
+#   int-gpios:
+#     type: phandle-array
+#     required: false
+  
+#   ngpios:
+#     type: int
+#     required: true
+#     description: no.of gpios
+
+
+
+
+# gpio-cells:
+#   - pin
+#   - flags
+
+
+
+description: PCA9555/TCA9555 16-bit I2C GPIO Expander
+
+compatible: "npx,pca9555"
+
+include: [gpio-expander.yaml, i2c-device.yaml]
 
 properties:
   "#gpio-cells":
@@ -42,8 +75,8 @@ properties:
   ngpios:
     type: int
     required: true
-    description: no.of gpios
-
+    description: Number of GPIOs provided by the expander
+  
 
 
 
