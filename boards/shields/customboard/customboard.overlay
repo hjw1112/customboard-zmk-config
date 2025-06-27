@@ -53,25 +53,21 @@
 
 
 
-tca9555: pca9555@20 {
-    compatible = "npx,pca9555";
-    reg = <0x20>;
-    gpio-controller;
-    #gpio-cells = <2>;
-    ngpios = <16>;
-    int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
-    status = "okay";
-};
-
-
-
 &i2c1 {
     status = "okay";
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-
+    tca9555: pca9555@20 {
+        compatible = "npx,pca9555";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
 
     
 
