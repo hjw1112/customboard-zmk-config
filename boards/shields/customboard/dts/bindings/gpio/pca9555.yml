@@ -57,7 +57,7 @@ description: PCA9555/TCA9555 16-bit I2C GPIO Expander
 
 compatible: "npx,pca9555"
 
-include: [gpio-expander.yaml, i2c-device.yaml]
+include: [i2c-device.yaml]
 
 properties:
   "#gpio-cells":
