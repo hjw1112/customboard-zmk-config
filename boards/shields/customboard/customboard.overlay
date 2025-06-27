@@ -59,7 +59,8 @@
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-    pca9555: pca9555@20 {
+
+    &pca9555: pca9555@20 {
         compatible = "npx,pca9555";
         reg = <0x20>;
         gpio-controller;
