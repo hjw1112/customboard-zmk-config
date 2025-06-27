@@ -64,9 +64,8 @@
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
-        ngpios = <8>;
+        ngpios = <16>;
         int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
-        ngpios = <8>;  // P00–P07
         status = "okay";
     };
 
