@@ -12,23 +12,23 @@
             <&gpio0 22 GPIO_ACTIVE_LOW>,
             <&gpio0 24 GPIO_ACTIVE_LOW>,
             <&gpio1 0 GPIO_ACTIVE_LOW>,
-            <&gpio0 15 GPIO_ACTIVE_LOW>; // P17
+            <&tca9555 15 GPIO_ACTIVE_LOW>; // P17
 
-        col-gpios = <&gpio0 0 GPIO_ACTIVE_LOW>,  // P00
-                    <&gpio0 1 GPIO_ACTIVE_LOW>,  // P01
-                    <&gpio0 2 GPIO_ACTIVE_LOW>,  // P02
-                    <&gpio0 3 GPIO_ACTIVE_LOW>,  // P03
-                    <&gpio0 4 GPIO_ACTIVE_LOW>,  // P04
-                    <&gpio0 5 GPIO_ACTIVE_LOW>,  // P05
-                    <&gpio0 6 GPIO_ACTIVE_LOW>,  // P06
-                    <&gpio0 7 GPIO_ACTIVE_LOW>,  // P07
-                    <&gpio0 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
-                    <&gpio0 9 GPIO_ACTIVE_LOW>, // P16
-                    <&gpio0 10 GPIO_ACTIVE_LOW>, // P15
-                    <&gpio0 11 GPIO_ACTIVE_LOW>, // P14
-                    <&gpio0 12 GPIO_ACTIVE_LOW>, // P13
-                    <&gpio0 13 GPIO_ACTIVE_LOW>, // P12
-                    <&gpio0 14 GPIO_ACTIVE_LOW>;  // P11
+        col-gpios = <&tca9555 0 GPIO_ACTIVE_LOW>,  // P00
+                    <&tca9555 1 GPIO_ACTIVE_LOW>,  // P01
+                    <&tca9555 2 GPIO_ACTIVE_LOW>,  // P02
+                    <&tca9555 3 GPIO_ACTIVE_LOW>,  // P03
+                    <&tca9555 4 GPIO_ACTIVE_LOW>,  // P04
+                    <&tca9555 5 GPIO_ACTIVE_LOW>,  // P05
+                    <&tca9555 6 GPIO_ACTIVE_LOW>,  // P06
+                    <&tca9555 7 GPIO_ACTIVE_LOW>,  // P07
+                    <&tca9555 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
+                    <&tca9555 9 GPIO_ACTIVE_LOW>, // P16
+                    <&tca9555 10 GPIO_ACTIVE_LOW>, // P15
+                    <&tca9555 11 GPIO_ACTIVE_LOW>, // P14
+                    <&tca9555 12 GPIO_ACTIVE_LOW>, // P13
+                    <&tca9555 13 GPIO_ACTIVE_LOW>, // P12
+                    <&tca9555 14 GPIO_ACTIVE_LOW>;  // P11
         diode-direction = "col2row";
     };
 };
@@ -59,7 +59,16 @@
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-
+    tca9555: tca9555@20 
+        compatible = "npx,pca9555";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <8>;
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+        ngpios = <8>;  // P00–P07
+        status = "okay";
+    };
 
     
 
