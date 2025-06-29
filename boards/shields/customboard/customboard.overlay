@@ -12,7 +12,7 @@
             <&gpio0 22 GPIO_ACTIVE_LOW>,
             <&gpio0 24 GPIO_ACTIVE_LOW>,
             <&gpio1 0 GPIO_ACTIVE_LOW>,
-            <&gpio1 15 GPIO_ACTIVE_LOW>; // P17
+            <&pca9555 15 GPIO_ACTIVE_LOW>; // P17
 
         col-gpios = <&pca9555 0 GPIO_ACTIVE_LOW>,  // P00
                     <&pca9555 1 GPIO_ACTIVE_LOW>,  // P01
@@ -65,8 +65,6 @@
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
-        ngpios = <16>;
-        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
         status = "okay";
     };
 
