@@ -95,9 +95,8 @@
             <&gpio0 20 GPIO_ACTIVE_LOW>,
             <&gpio0 22 GPIO_ACTIVE_LOW>,
             <&gpio0 24 GPIO_ACTIVE_LOW>,
-            <&gpio1 0 GPIO_ACTIVE_LOW>,
- 
-
+            <&gpio1 0 GPIO_ACTIVE_LOW>;
+            
         col-gpios = <&pca9555 0 GPIO_ACTIVE_LOW>,  // P00
                     <&pca9555 1 GPIO_ACTIVE_LOW>,  // P01
                     <&pca9555 2 GPIO_ACTIVE_LOW>,  // P02
