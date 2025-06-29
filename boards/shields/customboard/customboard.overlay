@@ -119,13 +119,13 @@
                     <&p0 5 GPIO_ACTIVE_LOW>,  // P05
                     <&p0 6 GPIO_ACTIVE_LOW>,  // P06
                     <&p0 7 GPIO_ACTIVE_LOW>,  // P07
-                    <&pca9555 0 GPIO_ACTIVE_LOW>, // P17 = last valid pin
-                    <&pca9555 1 GPIO_ACTIVE_LOW>, // P16
-                    <&pca9555 2 GPIO_ACTIVE_LOW>, // P15
-                    <&pca9555 3 GPIO_ACTIVE_LOW>, // P14
-                    <&pca9555 4 GPIO_ACTIVE_LOW>, // P13
-                    <&pca9555 5 GPIO_ACTIVE_LOW>, // P12
-                    <&pca9555 6 GPIO_ACTIVE_LOW>;  // P11
+                    <&p1 0 GPIO_ACTIVE_LOW>, // P17 = last valid pin
+                    <&p1 1 GPIO_ACTIVE_LOW>, // P16
+                    <&p1 2 GPIO_ACTIVE_LOW>, // P15
+                    <&p1 3 GPIO_ACTIVE_LOW>, // P14
+                    <&p1 4 GPIO_ACTIVE_LOW>, // P13
+                    <&p1 5 GPIO_ACTIVE_LOW>, // P12
+                    <&p1 6 GPIO_ACTIVE_LOW>;  // P11
         diode-direction = "col2row";
     };
 };
