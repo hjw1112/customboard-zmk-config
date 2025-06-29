@@ -53,33 +53,15 @@
 
 
 
-description: PCA9555/TCA9555 16-bit I2C GPIO Expander
+# Copyright 2024 NXP
+# SPDX-License-Identifier: Apache-2.0
+description: NXP PCA9555 I2C GPIO expander
 
 compatible: "nxp,pca9555"
 
-include: [i2c-device.yaml]
+include: nxp,pca_series.yaml
 
 properties:
-  "#gpio-cells":
-    type: int
-    const: 2
-    required: true
-
-  gpio-controller:
-    type: boolean
-
-  int-gpios:
-    type: phandle-array
-    required: false
-  
   ngpios:
-    type: int
     required: true
-    description: Number of GPIOs provided by the expander
-  
-
-
-
-gpio-cells:
-  - pin
-  - flags
+    const: 16
