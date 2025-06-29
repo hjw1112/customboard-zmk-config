@@ -20,12 +20,6 @@
 
 
 &i2c1 {
-    status = "okay";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
-    pinctrl-names = "default", "sleep";
-
-
     pca9555: pca9555@20 {
         compatible = "nxp,pca9555";
         reg = <0x20>;
@@ -35,23 +29,20 @@
         #gpio-cells = <2>;
         ngpios = <16>;
 
-        p0: gpio-port0 {
+        p0: gpio0 {
             gpio-controller;
             #gpio-cells = <2>;
-            reg = <0>;
             ngpios = <8>;
+            port = <0>;
         };
 
-        p1: gpio-port1 {
+        p1: gpio1 {
             gpio-controller;
             #gpio-cells = <2>;
-            reg = <1>;
             ngpios = <8>;
+            port = <1>;
         };
     };
-
-    
-
 
 
     ssd1306: ssd1306@3c {
