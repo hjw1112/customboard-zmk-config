@@ -33,7 +33,7 @@
         #gpio-cells = <2>;
         ngpios = <16>;
         status = "okay";
-        label = "pca9555";   // Add this line
+        label = "pca9555";
 
     };
 
@@ -96,23 +96,9 @@
             <&gpio0 22 GPIO_ACTIVE_LOW>,
             <&gpio0 24 GPIO_ACTIVE_LOW>,
             <&gpio1 0 GPIO_ACTIVE_LOW>,
-            <&pca9555 15 GPIO_ACTIVE_LOW>; // P17
 
-        col-gpios = <&pca9555 0 GPIO_ACTIVE_LOW>,  // P00
-                    <&pca9555 1 GPIO_ACTIVE_LOW>,  // P01
-                    <&pca9555 2 GPIO_ACTIVE_LOW>,  // P02
-                    <&pca9555 3 GPIO_ACTIVE_LOW>,  // P03
-                    <&pca9555 4 GPIO_ACTIVE_LOW>,  // P04
-                    <&pca9555 5 GPIO_ACTIVE_LOW>,  // P05
-                    <&pca9555 6 GPIO_ACTIVE_LOW>,  // P06
-                    <&pca9555 7 GPIO_ACTIVE_LOW>,  // P07
-                    <&pca9555 8 GPIO_ACTIVE_LOW>, // P17 = last valid pin
-                    <&pca9555 9 GPIO_ACTIVE_LOW>, // P16
-                    <&pca9555 10 GPIO_ACTIVE_LOW>, // P15
-                    <&pca9555 11 GPIO_ACTIVE_LOW>, // P14
-                    <&pca9555 12 GPIO_ACTIVE_LOW>, // P13
-                    <&pca9555 13 GPIO_ACTIVE_LOW>, // P12
-                    <&pca9555 14 GPIO_ACTIVE_LOW>;  // P11
+        col-gpios = 
         diode-direction = "col2row";
     };
 };
+    
