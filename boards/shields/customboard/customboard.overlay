@@ -84,7 +84,7 @@
     chosen {
         zmk,kscan = &kscan0;
         //zephyr,display = &ssd1306;
-        zmk,battery
+        zmk,battery;
     };
 
     kscan0: kscan {
