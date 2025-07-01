@@ -36,6 +36,7 @@
         #gpio-cells = <2>;
         ngpios = <16>;
         status = "okay";
+        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
     };
 
     
@@ -69,7 +70,7 @@
         steps = <80>;
 
         button {
-            gpios = <&gpio0 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;  // Push button pin
+            gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // Push button pin
             label = "Encoder Button";
         };
     };
