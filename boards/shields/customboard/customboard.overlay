@@ -26,8 +26,7 @@
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
-    sda-pin = <27>;
-    scl-pin = <26>;
+
 
     pca9555: pca9555@20 {
         compatible = "nxp,pca95xx";
