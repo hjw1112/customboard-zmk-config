@@ -41,7 +41,7 @@
                 &kp CAPS      &kp A     &kp S     &kp D     &kp F     &kp G      &kp H      &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp ENTER &none     &kp PG_UP     // COL0-COL14 (15 positions)
 
                 // ROW 4: Connected to &gpio1 0 (P1.00)
-                &kp LSHFT     &kp Z     &kp X     &kp C     &kp V     &kp B      &kp N      &kp M     &kp COMMA &kp DOT   &kp SLASH &kp RSHFT &none     &kp UP    &soft_off      // COL0-COL14 (15 positions)
+                &kp LSHFT     &kp Z     &kp X     &kp C     &kp V     &kp B      &kp N      &kp M     &kp COMMA &kp DOT   &kp SLASH &kp RSHFT &none     &kp UP    &kp A      // COL0-COL14 (15 positions)
 
                 // ROW 5: Connected to &pca9555 15 (PCA9555 P1.7)
                 &kp LCTRL     &kp LGUI  &kp LALT  &none     &none     &kp SPACE  &none      &none     &none     &kp RALT  &mo 1     &kp RCTRL &kp LEFT  &kp DOWN  &kp RIGHT     // COL0-COL14 (15 positions)
