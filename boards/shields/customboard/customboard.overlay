@@ -36,7 +36,7 @@
         #gpio-cells = <2>;
         ngpios = <16>;
         status = "okay";
-        int-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+        interrupt-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;  // <== critical!
     };
 
     
