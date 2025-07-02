@@ -30,7 +30,7 @@
 
 
     pca9555: pca9555@20 {
-        compatible = "nxp,pca95xx";
+        compatible = "nxp,pca_series";
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
