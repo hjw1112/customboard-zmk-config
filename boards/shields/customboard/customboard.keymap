@@ -21,7 +21,6 @@
                 compatible = "zmk,encoders";
                 encoder-0 {
                 bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                label = "Volume Encoder"; // Optional: A descriptive label
                 };
             };
 
@@ -47,6 +46,19 @@
                 &kp LCTRL     &kp LGUI  &kp LALT  &none     &none     &kp SPACE  &none      &none     &none     &kp RALT  &mo 1     &kp RCTRL &kp LEFT  &kp DOWN  &kp RIGHT     // COL0-COL14 (15 positions)
             >;
         };
+
+        layer_1 {
+            bindings = <
+                &trans     &bootloader &reset   &none      &none     &none     &none      &none     &none     &none     &none     &none     &none     &none     &none
+                &trans     &kp F13     &kp F14  &kp F15    &kp F16   &kp F17   &kp F18    &kp F19   &kp F20   &kp F21   &kp F22   &kp F23   &kp F24   &trans    &none
+                &trans     &none       &none    &none      &none     &none     &none      &none     &none     &none     &none     &none     &none     &none     &none
+                &trans     &none       &none    &none      &none     &none     &none      &none     &none     &none     &none     &none     &none     &none     &none
+                &trans     &none       &none    &none      &none     &none     &none      &none     &none     &none     &none     &none     &none     &none     &none
+                &trans     &none       &none    &none      &none     &none     &none      &none     &none     &none     &trans    &none     &none     &none     &none
+            >;
+        };
+
+
     };
 };
 
