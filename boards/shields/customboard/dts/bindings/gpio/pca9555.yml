@@ -57,7 +57,7 @@
 # SPDX-License-Identifier: Apache-2.0
 description: NXP PCA9555 I2C GPIO expander
 
-compatible: "nxp,pca95xx"
+compatible: "nxp,pca95"
 
 include: nxp,pca_series.yaml
 
