@@ -17,15 +17,23 @@
     keymap {
         compatible = "zmk,keymap";
 
-            encoders {
-                compatible = "zmk,encoders";
-                encoder-0 {
-                bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
+        encoder {
+            compatible = "zmk,encoders";
+            encoder-0 {
+            bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             };
+        };
 
 
-        default_layer {
+        button {
+            gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            label = "Encoder Button";
+            bindings = <&kp ENTER>;
+
+        };
+
+
+        layer_0 {
             bindings = <
                 // ROW 0: Connected to &gpio0 17 (P0.17)
                 &kp ESC       &kp F1    &kp F2    &kp F3    &kp F4    &kp F5     &none      &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &none     // COL0-COL14 (15 positions)
